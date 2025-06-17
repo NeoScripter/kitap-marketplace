@@ -1,4 +1,5 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
+import Footer from '../orgamisms/footer';
 
 export function RootLayout() {
 
@@ -7,7 +8,8 @@ export function RootLayout() {
             <ScrollRestoration />
             <div className="p-2 sm:p-4 max-w-360 mx-auto">
                 <Outlet />
-
+                
+                <Footer />
             </div>
 
         </div>
