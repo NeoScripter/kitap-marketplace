@@ -24,7 +24,14 @@
 
     --shadow-input: 0 0 0 3px #0e121b, 0 0 0 4px #e0e4ea;
 }
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);

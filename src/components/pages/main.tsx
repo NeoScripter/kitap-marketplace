@@ -32,8 +32,8 @@ export default function Main() {
             <img src={MobileHero} alt="" className='size-full object-center object-contain' />
         </div>
 
-        <div className='overflow-x-auto px-3 -mx-3'>
-            <div className="my-6 sm:my-8 flex items-center gap-3 w-max ">
+        <div className='scrollbar-hidden overflow-x-auto px-3 -mx-3'>
+            <div className="my-6 sm:my-8 flex items-center gap-3 w-max mx-auto md:gap-5">
                 {categories.map((cat, idx) => (
                     <ItemCategory key={`item-category-${idx + 1}`} content={cat} isActive={idx === selectedCategory} onClick={() => setSelectedCategory(idx)} />
                 ))}
