@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+    --font-display: 'Arial', ui-sans-serif, system-ui, sans-serif,
+        'apple color emoji', 'segoe ui emoji', 'segoe ui symbol',
+        'noto color emoji';
+    --font-headings: 'Intro Friday';
+    --font-square: 'Square721TL';
+
+    --breakpoint-xs: 420px;
+
+    --color-background: oklch(0.17 0.0175 268.55);
+    --color-light-bg: oklch(0.26 0.0175 270.65);
+    --color-lightest-bg: oklch(0.32 0.0284 273.89);
+    --color-btn-bg: oklch(0.73 0.06 79.64);
+    --color-btn-hover: oklch(0.68 0.0575 80.42);
+    --color-text-muted: oklch(1 0 0 / 50%);
+    --color-border: oklch(1 0 0 / 20%);
+    --color-input-bg: oklch(1 0 0 / 5%);
+    --color-hero-overlay: oklch(0.17 0.0175 268.55 / 40%);
+
+    --shadow-input: 0 0 0 3px #0e121b, 0 0 0 4px #e0e4ea;
+}
