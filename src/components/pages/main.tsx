@@ -1,4 +1,3 @@
-import logo from '@/assets/images/icon.svg';
 import Hero1 from '@/assets/images/hero-1-min.webp'
 import Hero2 from '@/assets/images/hero-2-min.webp'
 import HeroMain from '@/assets/images/hero-dkt-min.webp';
@@ -7,22 +6,15 @@ import MobileHero from '@/assets/images/hero-mb-min.webp';
 import { Input } from '@headlessui/react';
 import ItemCategory from '../atoms/item-category';
 import { useState } from 'react';
-import { products } from '@/lib/data/items';
+import { categories, products } from '@/lib/data/items';
 import ItemList from '../molecules/item-list';
 import Search from '../atoms/search';
-
-const categories = [
-    "игровые ноутбуки",
-    "ультрабуки",
-    "Рабочие станции",
-    "для офиса",
-    "для дома"
-];
 
 export default function Main() {
     const [selectedCategory, setSelectedCategory] = useState(0);
     const [searchInput, setSearchInput] = useState('');
 
+    const sortedItems = products.filter(p => p.category === categories[selectedCategory] && p.name.startsWith(searchInput));
     return <div>
 
         <Search className='md:hidden sm:mb-5' value={searchInput} setValue={setSearchInput} />
@@ -42,7 +34,7 @@ export default function Main() {
                             Найди себе идеальный <br /> ноутбук для своих задач
                         </p>
                         <div className="p-2 font-display">
-                            <Input className="bg-white w-full text-black !normal-case rounded-sm px-2 h-full" placeholder='Найти товары' />
+                            <Input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="bg-white w-full text-black !normal-case rounded-sm px-2 h-full" placeholder='Найти товары' />
                         </div>
 
                     </div>
@@ -73,7 +65,7 @@ export default function Main() {
 
         </div>
 
-        <ItemList products={products} />
+        <ItemList products={sortedItems} />
     </div>
 }
 

@@ -20,6 +20,7 @@ export default function Catalog() {
     const [searchInput, setSearchInput] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(0);
 
+    const sortedItems = products.filter(p =>  p.name.startsWith(searchInput));
     return (
         <div>
 
@@ -38,6 +39,6 @@ export default function Catalog() {
 
             </div>
 
-            <ItemList products={products} />
+            <ItemList products={sortedItems} />
         </div>)
 }
