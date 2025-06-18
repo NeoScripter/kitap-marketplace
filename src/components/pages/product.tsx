@@ -5,6 +5,43 @@ import { useParams } from "react-router-dom"
 import ItemList from "../molecules/item-list";
 import { Box, MapPin, ShoppingBag, Truck } from "lucide-react";
 import useLocalStorage from "@/lib/hooks/use-local-storage";
+import { SelectBtn } from "../atoms/select-btn";
+
+function DeliveryMethods() {
+    return (<div className="bg-black hidden lg:block rounded-3xl mb-2 p-4 space-y-4 font-black">
+        <div className="bg-white text-center text-sm text-black py-2 px-3 uppercase rounded-md font-display">
+            Способы получения
+        </div>
+
+        <div className="flex items-start gap-3 text-white font-display uppercase">
+            <MapPin className="size-6 text-white" />
+
+            <div>
+                <p className="text-xs">самовывоз из магазина</p>
+                <p className="text-[0.5rem]">м. достоевская, селезневская 30к б-в</p>
+            </div>
+        </div>
+        <div className="flex items-start gap-3 text-white font-display uppercase">
+            <Truck className="size-6 text-white" />
+
+            <div>
+                <p className="text-xs">доставка курьером</p>
+                <p className="text-[0.5rem]">по москве и мо</p>
+            </div>
+        </div>
+
+        <div className="flex items-start gap-3 text-white font-display uppercase">
+            <Box className="size-6 text-white" />
+
+            <div>
+                <p className="text-xs">доставка по россии</p>
+                <p className="text-[0.5rem]">службой доставки CDEK</p>
+            </div>
+        </div>
+
+    </div>
+    )
+}
 
 export default function Product() {
     const { id } = useParams();
@@ -64,7 +101,7 @@ export default function Product() {
 
                                 <div className="flex items-center gap-3 flex-wrap">
                                     {hardDrives.map((drive, driveIdx) => (
-                                        <SelectButton key={`hard-drive-value-${driveIdx}`} isActive={drive === selectedDrive} label={drive} onClick={() => setSelectedDrive(drive)} />
+                                        <SelectBtn key={`hard-drive-value-${driveIdx}`} isActive={drive === selectedDrive} label={drive} onClick={() => setSelectedDrive(drive)} />
                                     ))}
                                 </div>
                             </div>
@@ -73,7 +110,7 @@ export default function Product() {
 
                                 <div className="flex items-center gap-3 flex-wrap">
                                     {ram.map((ramUnit, ramIdx) => (
-                                        <SelectButton key={`ramUnit-value-${ramIdx}`} isActive={ramUnit === selectedRam} label={ramUnit} onClick={() => setSelectedRam(ramUnit)} />
+                                        <SelectBtn key={`ramUnit-value-${ramIdx}`} isActive={ramUnit === selectedRam} label={ramUnit} onClick={() => setSelectedRam(ramUnit)} />
                                     ))}
                                 </div>
 
@@ -84,13 +121,13 @@ export default function Product() {
 
                 </div>
                 <div className="fixed z-20 bottom-20 left-1/2 w-full max-w-120 -translate-x-1/2 lg:translate-x-0 lg:static lg:w-72 lg:shrink-0">
-                    <div className="bg-black rounded-3xl lg:mb-4 p-4 space-y-4 font-black flex lg:block justify-between gap-2 items-center">
-                        <div className="text-lg shrink-0 lg:text-3xl font-square mb-0 text-white text-center">{product.price} Р</div>
+                    <div className="bg-black rounded-3xl lg:mb-4 p-4 lg:space-y-4 font-black flex lg:block justify-between gap-2 items-center">
+                        <div className="text-lg shrink-0 lg:text-3xl font-square text-white text-center">{product.price} Р</div>
 
-                        <div className="flex items-center gap-2 text-sm order-2 mb-0">
+                        <div className="flex items-center gap-2 text-sm order-2">
                             <button className="bg-white aspect-square lg:aspect-auto text-black cursor-pointer py-2 px-2 lg:px-3 uppercase rounded-3xl font-display">
-                                <ShoppingBag className="size-5 text-black" />
-                                <span className="hidden lg:inline">Добавить в корзину</span> 
+                                <ShoppingBag className="size-5 text-black lg:hidden" />
+                                <span className="hidden lg:inline">Добавить в корзину</span>
                             </button>
                             <button onClick={toggleFavorite} className="cursor-pointer bg-white text-black p-2 uppercase rounded-3xl font-display aspect-square">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={clsx("size-5", isFavorite.includes(parsed) && 'text-pink-500')}>
@@ -105,40 +142,28 @@ export default function Product() {
                         </button>
                     </div>
 
-                    <div className="bg-black hidden lg:block rounded-3xl mb-2 p-4 space-y-4 font-black">
-                        <div className="bg-white text-center text-sm text-black py-2 px-3 uppercase rounded-md font-display">
-                            Способы получения
-                        </div>
-
-                        <div className="flex items-start gap-3 text-white font-display uppercase">
-                            <MapPin className="size-6 text-white" />
-
-                            <div>
-                                <p className="text-xs">самовывоз из магазина</p>
-                                <p className="text-[0.5rem]">м. достоевская, селезневская 30к б-в</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-3 text-white font-display uppercase">
-                            <Truck className="size-6 text-white" />
-
-                            <div>
-                                <p className="text-xs">доставка курьером</p>
-                                <p className="text-[0.5rem]">по москве и мо</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 text-white font-display uppercase">
-                            <Box className="size-6 text-white" />
-
-                            <div>
-                                <p className="text-xs">доставка по россии</p>
-                                <p className="text-[0.5rem]">службой доставки CDEK</p>
-                            </div>
-                        </div>
-
-                    </div>
+                    <DeliveryMethods />
                 </div>
             </div>
+
+            <section className="font-display my-4 md:flex items-start gap-4 px-2">
+                <div className="flex-1">
+                    <h2 className="text-xl font-black mb-2 uppercase">Описание</h2>
+                    <p className="font-medium">{product.description}</p>
+
+                </div>
+                <div className="flex-1">
+                    <h2 className="mt-4 text-xl font-black mb-2 uppercase">Характеристики</h2>
+                    <ul className="space-y-1 uppercase font-black divide-y-2 divide-gray-400 w-max">
+                        <li className="pb-1">Процессор: <span className="text-sm ml-2">{product.processor}</span></li>
+                        <li>видеокарта: <span className="text-sm ml-2">{product.motherboard}</span></li>
+                        <li>экран: <span className="text-sm ml-2">{product.screen}</span></li>
+                        <li>вес: <span className="text-sm ml-2">{product.weight}</span></li>
+                        <li>гарантия: <span className="text-sm ml-2">{product.warranty}</span></li>
+                    </ul>
+
+                </div>
+            </section>
             <section className="my-4">
                 <div className="bg-black rounded-full text-white text-center uppercase text-xl py-2 font-display font-black mb-4">
                     Подобрали для вас
@@ -149,12 +174,4 @@ export default function Product() {
         </div>
     )
 }
-type SelectButtonProps = {
-    isActive: boolean;
-    label: string;
-    onClick: () => void;
-}
 
-function SelectButton({ isActive, label, onClick }: SelectButtonProps) {
-    return <button onClick={onClick} className={clsx("rounded-full text-xs xl:text-sm text-white border-2 cursor-pointer font-display font-black py-1 px-5 uppercase", isActive ? 'border-green-600' : 'border-white')}>{label}</button>
-}
