@@ -4,6 +4,7 @@ import { useCartContext } from "@/lib/hooks/use-cart-context";
 import { CheckIcon, HeartIcon, Minus, Plus, Trash, XIcon, Zap } from "lucide-react";
 import { useState } from "react";
 import clsx from "clsx";
+import useLocalStorage from "@/lib/hooks/use-local-storage";
 
 export default function Cart() {
     const { cart, add, remove, deduct } = useCartContext();
@@ -109,6 +110,16 @@ type CartItemProps = {
 }
 
 function CartItem({ item, isSelected, toggleItem, quantity, addItem, deductItem, removeItem }: CartItemProps) {
+    const [isFavorite, setIsFavorite] = useLocalStorage<number[]>('favorites', []);
+
+    function toggleFavorite() {
+        if (isFavorite.includes(item.id)) {
+            setIsFavorite(p => p.filter(id => id !== item.id));
+        } else {
+            setIsFavorite(p => [...p, item.id]);
+        }
+    }
+
     return (
         <div className="rounded-xl bg-black px-2 py-1 flex items-center justify-between gap-2 relative">
             <div className="basis-1/5 aspect-square bg-white rounded-md flex items-center justify-center">
@@ -123,8 +134,8 @@ function CartItem({ item, isSelected, toggleItem, quantity, addItem, deductItem,
                 <p className="mb-2 text-white uppercase font-display font-black sm:text-base text-xs">{item.name}</p>
 
                 <div className="flex items-center gap-1 sm:gap-2 w-full ">
-                    <button className="aspect-square bg-white p-1 shrink-0 rounded-sm cursor-pointer flex">
-                        <HeartIcon className="size-3 sm:size-5 text-black" />
+                    <button onClick={toggleFavorite} className="aspect-square bg-white p-1 shrink-0 rounded-sm cursor-pointer flex">
+                        <HeartIcon className={clsx("size-3 sm:size-5", isFavorite.includes(item.id) ? "text-pink-500" : "text-black")}/>
                     </button>
                     <button onClick={() => removeItem(item.id)} className="aspect-square bg-white shrink-0 p-1 rounded-sm cursor-pointer flex">
                         <Trash className="size-3 sm:size-5 text-black" />
