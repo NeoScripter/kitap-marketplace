@@ -2,6 +2,7 @@ import { RootLayout } from '@/components/layouts/root-layout';
 import Account from '@/components/pages/account';
 import Cart from '@/components/pages/cart';
 import Catalog from '@/components/pages/catalog';
+import Checkout from '@/components/pages/checkout';
 import Discounts from '@/components/pages/discounts';
 import Favorites from '@/components/pages/favorites';
 import Main from '@/components/pages/main';
@@ -19,6 +20,7 @@ export const routes = [
             { path: 'favorites', element: <Favorites /> },
             { path: 'cart', element: <Cart /> },
             { path: 'account', element: <Account /> },
+            { path: 'checkout', element: <Checkout/> },
             { path: 'product/:id', element: <Product /> },
         ],
     },

@@ -5,6 +5,7 @@ import { CheckIcon, HeartIcon, Minus, Plus, Trash, XIcon, Zap } from "lucide-rea
 import { useState } from "react";
 import clsx from "clsx";
 import useLocalStorage from "@/lib/hooks/use-local-storage";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
     const { cart, add, remove, deduct } = useCartContext();
@@ -83,9 +84,9 @@ export default function Cart() {
                         <div className="font-black text-white uppercase font-display text-sm lg:flex-1 lg:w-1/2">Ваша корзина</div>
                         <div className="uppercase font-square shrink-0 w-max text-sm font-bold lg:flex-1 lg:text-end lg:w-1/2 text-green-500">{selectedPrice} P</div>
                     </div>
-                    <button className="flex-1 rounded-sm lg:w-full bg-white font-black cursor-pointer text-sm px-2 py-1 uppercase font-display ">
+                    <Link to="/checkout" className="flex-1 rounded-sm lg:w-full bg-white font-black cursor-pointer text-sm px-2 py-1 uppercase font-display ">
                         Перейти к оформлению
-                    </button>
+                    </Link>
                 </div>
             </section>
 
