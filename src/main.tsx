@@ -4,9 +4,12 @@ import '@/assets/styles.css';
 import '@/assets/fonts/fonts.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './routes/router';
+import { CartProvider } from './lib/providers/shopping-card-provider';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={createBrowserRouter(routes)} />
+        <CartProvider>
+            <RouterProvider router={createBrowserRouter(routes)} />
+        </CartProvider>
     </StrictMode>,
 )
