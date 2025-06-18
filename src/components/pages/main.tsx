@@ -8,7 +8,8 @@ import { Input } from '@headlessui/react';
 import ItemCategory from '../atoms/item-category';
 import { useState } from 'react';
 import { products } from '@/lib/data/items';
-import Item from '../atoms/item';
+import ItemList from '../molecules/item-list';
+import Search from '../atoms/search';
 
 const categories = [
     "игровые ноутбуки",
@@ -20,18 +21,11 @@ const categories = [
 
 export default function Main() {
     const [selectedCategory, setSelectedCategory] = useState(0);
+    const [searchInput, setSearchInput] = useState('');
 
-    return <div className="mx-auto">
-        <div className="my-3 flex md:hidden sm:mb-5 gap-2 items-center h-11">
-            <div className='size-11'>
-                <img src={logo} alt="lorem" className='size-full object-center' />
-            </div>
+    return <div>
 
-            <div className="bg-black rounded-xl p-2 flex-1 h-full">
-                <Input className="bg-white w-full rounded-sm px-2 h-full" placeholder='Найти товары' />
-            </div>
-
-        </div>
+        <Search className='md:hidden sm:mb-5' value={searchInput} setValue={setSearchInput} />
         <section className="font-headings text-white">
             <div className='hidden md:flex gap-4 font-bold'>
                 <div className='flex flex-col items-start justify-between uppercase relative basis-4/5 bg-right bg-contain bg-no-repeat' style={{ backgroundImage: `url(${HeroMain})` }}>
@@ -45,7 +39,7 @@ export default function Main() {
 
                     <div className="ml-[3.5%] mr-[52%] xl:ml-11 xl:mr-40 bg-black rounded-3xl px-[2%] py-[1%]">
                         <p className="font-bold mb-1 2xl:text-[1.9rem] xl:leading-10 text-[2vw] leading-[2.6vw]">
-                            Найди себе идеальный <br/> ноутбук для своих задач
+                            Найди себе идеальный <br /> ноутбук для своих задач
                         </p>
                         <div className="p-2 font-display">
                             <Input className="bg-white w-full text-black !normal-case rounded-sm px-2 h-full" placeholder='Найти товары' />
@@ -73,17 +67,13 @@ export default function Main() {
         <div className='scrollbar-hidden overflow-x-auto px-3 -mx-3'>
             <div className="my-6 sm:my-8 flex items-center gap-3 w-max mx-auto md:gap-5">
                 {categories.map((cat, idx) => (
-                    <ItemCategory key={`item-category-${idx + 1}`} content={cat} isActive={idx === selectedCategory} onClick={() => setSelectedCategory(idx)} />
+                    <ItemCategory key={`item-category-${idx + 1}`} isActive={idx === selectedCategory} onClick={() => setSelectedCategory(idx)} >{cat}</ItemCategory>
                 ))}
             </div>
 
         </div>
 
-        <section className="grid grid-cols-[repeat(auto-fit,_minmax(220px,_1fr))] gap-3 md:gap-5">
-            {products.map((pr, idx) => (
-                <Item key={`item-${idx + 1}`} item={pr} />
-            ))}
-        </section>
+        <ItemList products={products} />
     </div>
 }
 

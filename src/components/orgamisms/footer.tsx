@@ -8,7 +8,7 @@ import {
 import { footerLinks } from "@/lib/data/footer-links";
 
 export default function Footer() {
-    return <footer className="bg-black rounded-2xl text-white px-4 mt-6 mb-18 md:mb-0">
+    return <footer className="bg-black rounded-2xl text-white px-4 mt-6 md:mt-10 mb-18 md:mb-0">
         <Accordion type="single" collapsible className="font-square md:hidden">
             {footerLinks.map((link, idx) => (
                 <AccordionItem key={`footer-link-${idx + 1}`} value={`footer-link-${idx + 1}`}>
@@ -25,9 +25,9 @@ export default function Footer() {
 
         <div className="hidden md:flex flex-wrap gap-4 items-start px-4 justify-between py-6">
             <div className="hidden lg:block flex-1">
-                <div className='w-50 mr-4'>
+                <div className='w-40 mr-4'>
                     <img src={logo} alt="" className='size-full object-contain' />
-                    <p className='mt-4 font-bold text-4xl text-center'>Buy Smart</p>
+                    <p className='mt-4 font-bold text-3xl text-center'>Buy Smart</p>
                 </div>
             </div>
             {footerLinks.map((link, idx) => (
