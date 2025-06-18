@@ -5,6 +5,7 @@ import Catalog from '@/components/pages/catalog';
 import Discounts from '@/components/pages/discounts';
 import Favorites from '@/components/pages/favorites';
 import Main from '@/components/pages/main';
+import Product from '@/components/pages/product';
 
 
 export const routes = [
@@ -18,6 +19,7 @@ export const routes = [
             { path: 'favorites', element: <Favorites /> },
             { path: 'cart', element: <Cart /> },
             { path: 'account', element: <Account /> },
+            { path: 'product/:id', element: <Product /> },
         ],
     },
     { path: '*', element: <h1>Not found</h1> },

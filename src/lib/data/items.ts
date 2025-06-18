@@ -22,6 +22,17 @@ export const categories = [
     "для дома"
 ];
 
+export const hardDrives = [
+    "256 GB",
+    "512 GB",
+    "1 TB",
+];
+
+export const ram = [
+    "8 GB",
+    "16 GB",
+    "32 GB"
+]
 export const products: Product[] = [
     {
         id: 1,
@@ -158,7 +169,7 @@ export const products: Product[] = [
         warranty: "2 years",
         category: "игровые ноутбуки"
     },
-        {
+    {
         id: 10,
         images: ["/item-min.webp", "/item-min.webp", "/item-min.webp", "/item-min.webp", "/item-min.webp"],
         price: 159268,
@@ -248,7 +259,7 @@ export const products: Product[] = [
         warranty: "3 years",
         category: "игровые ноутбуки"
     },
-        {
+    {
         id: 16,
         images: ["/item-min.webp", "/item-min.webp", "/item-min.webp", "/item-min.webp", "/item-min.webp"],
         price: 109051,
