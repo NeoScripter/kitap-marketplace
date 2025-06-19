@@ -37,9 +37,9 @@ const navItems: navItem[] = [
 export default function Navigation() {
     const { pathname } = useLocation();
 
-    return <ul className="fixed md:opacity-40 hover:opacity-100 bg-black md:bottom-auto md:left-4 md:top-5 md:translate-x-0 md:flex-col rounded-xl md:px-2 md:py-3 flex left-1/2 -translate-x-1/2 bottom-5 z-20 items-center justify-center gap-4 py-2 px-4">
+    return <ul className="md:w-15 bg-black md:flex-col rounded-xl md:px-2 md:py-3 flex items-center justify-center gap-4 py-2 px-4">
         {navItems.map((navItem, idx) => (
-            <li key={`header-nav-item-${idx + 1}`} className={clsx("aspect-square flex items-center justify-center p-1 rounded-sm", pathname === navItem.path && "bg-white/20")}>
+            <li key={`header-nav-item-${idx + 1}`} className={clsx("aspect-square transition-colors duration-200 ease-in hover:bg-white/15 flex items-center justify-center p-1 rounded-sm", pathname === navItem.path && "bg-white/20")}>
                 <Link to={navItem.path}>{navItem.label}</Link>
             </li>
         ))}       
