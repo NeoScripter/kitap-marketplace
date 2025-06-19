@@ -26,7 +26,10 @@ export default function Cart() {
 
     const cartProducts = products.filter(product => cart.find(cartItem => cartItem.id === product.id));
 
-    const selectedPrice = cartProducts.reduce((acc, cartItem) => acc += selectedIds.includes(cartItem.id) ? cartItem.price : 0, 0);
+    const selectedPrice = cartProducts.reduce((acc, cartItem) => {
+        const quantity = cart.find(item => item.id === cartItem.id)?.quantity ?? 1;
+        return acc + (selectedIds.includes(cartItem.id) ? cartItem.price * quantity : 0);
+    }, 0);
 
     function selectAll() {
         setSelectedIds(cartProducts.map(p => p.id));
@@ -136,7 +139,7 @@ function CartItem({ item, isSelected, toggleItem, quantity, addItem, deductItem,
 
                 <div className="flex items-center gap-1 sm:gap-2 w-full ">
                     <button onClick={toggleFavorite} className="aspect-square bg-white p-1 shrink-0 rounded-sm cursor-pointer flex">
-                        <HeartIcon className={clsx("size-3 sm:size-5", isFavorite.includes(item.id) ? "text-pink-500" : "text-black")}/>
+                        <HeartIcon className={clsx("size-3 sm:size-5", isFavorite.includes(item.id) ? "text-pink-500" : "text-black")} />
                     </button>
                     <button onClick={() => removeItem(item.id)} className="aspect-square bg-white shrink-0 p-1 rounded-sm cursor-pointer flex">
                         <Trash className="size-3 sm:size-5 text-black" />
