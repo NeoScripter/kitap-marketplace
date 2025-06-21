@@ -43,6 +43,10 @@ export default function Cart() {
             }
         })
     }
+
+    function handleCheckoutClick() {
+        localStorage.setItem('checkout-price', JSON.stringify(selectedPrice));
+    }
     return (
         <div className="mt-2">
             <div className="bg-black/60 font-black font-display uppercase text-white -mx-2 -mt-4 p-6 rounded-b-2xl md:rounded-3xl md:bg-black md:mx-0 md:mt-0">
@@ -87,7 +91,7 @@ export default function Cart() {
                         <div className="font-black text-white uppercase font-display text-sm lg:flex-1 lg:w-1/2">Ваша корзина</div>
                         <div className="uppercase font-square shrink-0 w-max text-sm font-bold lg:flex-1 lg:text-end lg:w-1/2 text-green-500">{selectedPrice} P</div>
                     </div>
-                    <Link to="/checkout" className="flex-1 rounded-sm lg:w-full bg-white font-black cursor-pointer text-sm px-2 py-1 uppercase font-display ">
+                    <Link onClick={handleCheckoutClick} to="/checkout" className="flex-1 rounded-sm lg:w-full bg-white font-black cursor-pointer text-sm px-2 py-1 uppercase font-display ">
                         Перейти к оформлению
                     </Link>
                 </div>
