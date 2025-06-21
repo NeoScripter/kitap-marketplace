@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import logo from '@/assets/images/footer-min.webp';
 import { Input } from "@headlessui/react";
+import { SearchIcon } from "lucide-react";
 
 type SearchProps = {
     value: string;
@@ -14,8 +15,10 @@ export default function Search({ value, className, setValue }: SearchProps) {
             <img src={logo} alt="lorem" className='size-full object-center object-contain' />
         </div>
 
-        <div className="flex-1 h-full">
+        <div className="flex-1 relative h-full">
             <Input value={value} onChange={(e) => setValue(e.target.value)} className="bg-white w-full rounded-sm px-2 h-full" placeholder='Найти товары' />
+
+            <SearchIcon className="text-black size-5 absolute right-3 top-1/2 -translate-y-1/2" />
         </div>
 
     </div>
