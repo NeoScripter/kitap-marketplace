@@ -37,7 +37,7 @@ export default function Main() {
                             Найди себе идеальный <br /> ноутбук для своих задач
                         </p>
                         <div className="p-2 relative font-display">
-                            <Input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="bg-white w-full text-black !normal-case rounded-sm px-2 h-full" placeholder='Найти товары' />
+                            <Input value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="bg-white w-full text-black !normal-case rounded-sm py-1 px-2 h-full" placeholder='Найти товары' />
                             <SearchIcon className="text-black size-5 absolute right-3 top-1/2 -translate-y-1/2" />
                         </div>
 
