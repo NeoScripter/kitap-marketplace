@@ -8,7 +8,7 @@ import useLocalStorage from "@/lib/hooks/use-local-storage";
 import { SelectBtn } from "../atoms/select-btn";
 
 function DeliveryMethods() {
-    return (<div className="bg-black hidden lg:block rounded-3xl mb-2 p-4 space-y-4 font-black">
+    return (<div className="bg-primary-gray hidden lg:block rounded-3xl mb-2 p-4 space-y-4 font-black">
         <div className="bg-white text-center text-sm text-black py-2 px-3 uppercase rounded-md font-display">
             Способы получения
         </div>
@@ -67,7 +67,7 @@ export default function Product() {
     return (
         <div className="mt-2">
             <div className="md:flex items-start justify-betwen gap-6 xl:gap-10">
-                <div className="bg-blue-400 -mx-2 -mt-4 p-6 rounded-b-2xl md:rounded-3xl md:bg-black md:mx-0 md:mt-0">
+                <div className="bg-blue-400 -mx-2 -mt-4 p-6 rounded-b-2xl md:rounded-3xl md:bg-primary-gray md:mx-0 md:mt-0">
                     <h1 className="font-bold font-headings text-xl md:hidden">{product.name}</h1>
 
                     <div className='scrollbar-hidden overflow-x-auto px-3 -mx-3 md:hidden'>
@@ -94,7 +94,7 @@ export default function Product() {
                                 {selectedImage !== null && <img src={selectedImage} alt="" className="size-full object-contain object-center aspect-square" />}
                             </div>
                         </div>
-                        <div className="flex md:max-w-110 flex-wrap gap-x-6 md:flex-col gap-y-4 lg:gap-y-5 items-center md:items-start font-display uppercase text-sm xl:text-base bg-black text-white rounded-2xl py-3 px-6 md:px-0">
+                        <div className="flex md:max-w-110 flex-wrap gap-x-6 md:flex-col gap-y-4 lg:gap-y-5 items-center md:items-start font-display uppercase text-sm xl:text-base bg-primary-gray text-white rounded-2xl py-3 px-6 md:px-0">
                             <h1 className="font-bold font-headings text-xl xl:text-2xl text-balance hidden md:inline max-w-100">{product.name}</h1>
                             <div>
                                 <p className="font-bold mb-2">Объем диска:</p>
@@ -121,7 +121,7 @@ export default function Product() {
 
                 </div>
                 <div className="fixed z-20 bottom-20 left-1/2 w-full max-w-120 -translate-x-1/2 lg:translate-x-0 lg:static lg:w-72 lg:shrink-0">
-                    <div className="bg-black rounded-3xl lg:mb-4 p-4 lg:space-y-4 font-black flex lg:block justify-between gap-2 items-center">
+                    <div className="bg-primary-gray rounded-3xl lg:mb-4 p-4 lg:space-y-4 font-black flex lg:block justify-between gap-2 items-center">
                         <div className="text-lg shrink-0 lg:text-3xl font-square text-white text-center">{product.price} Р</div>
 
                         <div className="flex items-center gap-2 text-sm order-2">
@@ -165,7 +165,7 @@ export default function Product() {
                 </div>
             </section>
             <section className="my-4">
-                <div className="bg-black rounded-full text-white text-center uppercase text-xl py-2 font-display font-black mb-4">
+                <div className="bg-primary-gray rounded-full text-white text-center uppercase text-xl py-2 font-display font-black mb-4">
                     Подобрали для вас
                 </div>
 

@@ -10,7 +10,7 @@ type SearchProps = {
 }
 
 export default function Search({ value, className, setValue }: SearchProps) {
-    return <div className={clsx("bg-black rounded-xl p-2.5 my-3 flex gap-2 items-center h-13", className)}>
+    return <div className={clsx("bg-primary-gray rounded-xl p-2.5 my-3 flex gap-2 items-center h-13", className)}>
         <div className='size-8 mx-1'>
             <img src={logo} alt="lorem" className='size-full object-center object-contain' />
         </div>

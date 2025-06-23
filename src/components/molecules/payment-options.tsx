@@ -13,7 +13,7 @@ export function PaymentOptions({ price }: PaymentOptionsProps) {
     return (
         <div className='md:flex-1 w-full md:space-y-4 shrink-0 max-w-120'>
 
-            <div className="bg-black rounded-xl p-3 ">
+            <div className="bg-primary-gray rounded-xl p-3 ">
                 <div className="flex gap-3 items-center">
                     <button onClick={() => setActivePayment(0)} className={clsx("bg-white flex-1 overflow-clip rounded-4xl border-2", activePayment === 0 ? 'border-green-400' : 'border-black')}>
                         <img src={Payment1} alt="" className='object-contain object-center size-full' />
@@ -32,9 +32,9 @@ export function PaymentOptions({ price }: PaymentOptionsProps) {
                 </div>
             </div>
 
-            <div className="bg-black fixed bottom-20 left-1/2 -translate-x-1/2 max-w-100 px-4 w-full rounded-md md:static md:translate-x-0 md:max-w-120 py-2 flex font-black uppercase text-xl sm:text-2xl mt-3 items-center text-white justify-between">
+            <div className="bg-primary-gray fixed bottom-20 left-1/2 -translate-x-1/2 max-w-100 px-4 w-full rounded-md md:static md:translate-x-0 md:max-w-120 py-2 flex font-black uppercase text-xl sm:text-2xl mt-3 items-center text-white justify-between">
                 <div className='md:hidden'>{price} P</div>
-                <button className="px-4 rounded-md md:text-xl md:mx-auto md:w-full md:text-white md:bg-black cursor-pointer uppercase text-sm py-2 bg-white text-black">
+                <button className="px-4 rounded-md md:text-xl md:mx-auto md:w-full md:text-white md:bg-primary-gray cursor-pointer uppercase text-sm py-2 bg-white text-black">
                     Оплатить онлайн
                 </button>
             </div>

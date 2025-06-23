@@ -22,7 +22,7 @@ export default function Item({ item }: ItemProps) {
         }
     }
     return (
-        <div className='p-3 shadow-xl bg-black rounded-lg'>
+        <div className='p-3 shadow-xl bg-primary-gray rounded-lg'>
             <div className="block aspect-square rounded-lg bg-white relative mb-2">
                 <Link to={`/product/${item.id}`}>
                     <img src={item.images[0]} alt="" className='size-full block object-center object-cover' />

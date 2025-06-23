@@ -12,6 +12,7 @@
 
     --breakpoint-xs: 420px;
 
+    --color-primary-gray: oklch(0.2178 0 0);
     --color-background: oklch(0.17 0.0175 268.55);
     --color-light-bg: oklch(0.26 0.0175 270.65);
     --color-lightest-bg: oklch(0.32 0.0284 273.89);

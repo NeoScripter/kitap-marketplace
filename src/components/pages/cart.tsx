@@ -49,7 +49,7 @@ export default function Cart() {
     }
     return (
         <div className="mt-2">
-            <div className="bg-black/60 font-black font-display uppercase text-white -mx-2 -mt-4 p-6 rounded-b-2xl md:rounded-3xl md:bg-black md:mx-0 md:mt-0">
+            <div className="bg-primary-gray/60 font-black font-display uppercase text-white -mx-2 -mt-4 p-6 rounded-b-2xl md:rounded-3xl md:bg-primary-gray md:mx-0 md:mt-0">
                 <div className="flex items-center gap-3 mb-2">
                     <h1 className="text-xl">Корзина </h1>
                     <div className="text-gray-400 text-lg">{itemsMessage(cart.length)}</div>
@@ -72,7 +72,7 @@ export default function Cart() {
 
             </div>
 
-            <section className="rounded-xl bg-black/60 p-4 my-4 lg:flex lg:items-start lg:gap-4">
+            <section className="rounded-xl bg-primary-gray/60 p-4 my-4 lg:flex lg:items-start lg:gap-4">
                 <h2 className="mb-4 font-display text-white lg:hidden uppercase font-black text-center">Доступны для заказа</h2>
 
                 <div className="grid gap-3">
@@ -81,7 +81,7 @@ export default function Cart() {
                     ))}
                 </div>
 
-                <div className="fixed left-1/2 -translate-x-1/2 lg:items-start bg-black flex lg:flex-col items-center z-20 bottom-20 w-full max-w-120 rounded-md p-2 lg:translate-x-0 lg:static lg:w-108 lg:gap-2 lg:shrink-0">
+                <div className="fixed left-1/2 -translate-x-1/2 lg:items-start bg-primary-gray flex lg:flex-col items-center z-20 bottom-20 w-full max-w-120 rounded-md p-2 lg:translate-x-0 lg:static lg:w-108 lg:gap-2 lg:shrink-0">
                     <div className="flex-1 text-pink-500 hidden lg:order-2 lg:flex lg:items-center lg:justify-between lg:w-full">
                         <div className="font-black uppercase font-display text-sm lg:flex-1 lg:w-1/2">Товары ({selectedIds.length})</div>
                         <div className="uppercase font-square shrink-0 w-max text-sm font-bold lg:flex-1 lg:text-end lg:w-1/2 ">{itemsMessage(selectedIds.length)}</div>
@@ -98,7 +98,7 @@ export default function Cart() {
             </section>
 
             <section className="my-4">
-                <div className="bg-black rounded-full text-white text-center uppercase text-xl py-2 font-display font-black mb-4">
+                <div className="bg-primary-gray rounded-full text-white text-center uppercase text-xl py-2 font-display font-black mb-4">
                     Недавно смотрели
                 </div>
 
@@ -129,7 +129,7 @@ function CartItem({ item, isSelected, toggleItem, quantity, addItem, deductItem,
     }
 
     return (
-        <div className="rounded-xl bg-black px-2 py-1 flex items-center justify-between gap-2 relative">
+        <div className="rounded-xl bg-primary-gray px-2 py-1 flex items-center justify-between gap-2 relative">
             <div className="basis-1/5 aspect-square bg-white rounded-md flex items-center justify-center">
                 <img src={item.images[0]} alt="" className="object-contain object center size-4/5" />
             </div>

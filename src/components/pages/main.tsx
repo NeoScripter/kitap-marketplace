@@ -20,7 +20,10 @@ export default function Main() {
         <Search className='md:hidden sm:mb-5' value={searchInput} setValue={setSearchInput} />
         <section className="font-headings text-white">
             <div className='hidden md:flex gap-4 font-bold'>
-                <div className='flex flex-col items-start justify-between uppercase relative basis-4/5 bg-right bg-contain bg-no-repeat' style={{ backgroundImage: `url(${HeroMain})` }}>
+                <div className='flex flex-col items-start justify-between uppercase relative basis-4/5 bg-right bg-contain bg-no-repeat' >
+                    <div className="absolute inset-0 z-10">
+                        <img src={HeroMain} alt="" className='size-full object-center object-contain' />
+                    </div>
                     {/* <div className='px-[6vw] mt-[5vw] xl:px-25 xl:mt-18'> */}
                     {/*     <h1 className='text-[3vw] leading-[4vw] xl:leading-18 xl:text-[2.5rem] mb-4'>открой для себя новое</h1> */}
                     {/*     <p className="text-[5.35vw] xl:text-7xl xl:leading-20 leading-[6vw] w-7/10 font-black">вместе с asus rog scar 18</p> */}
@@ -29,7 +32,7 @@ export default function Main() {
                     {/*     <img src={HeroMask} alt="" className='size-full object-contain object-right' /> */}
                     {/* </div> */}
 
-                    <div className="mt-auto mb-9 xl:mb-11 shadow-xl bg-black rounded-3xl px-[2%] py-[1%]">
+                    <div className="mt-auto mb-9 xl:mb-11 shadow-xl bg-primary-gray rounded-3xl px-[2%] py-[1%]">
                         <p className="font-bold mb-1 2xl:text-[1.9rem] xl:leading-10 text-[2vw] leading-[2.6vw]">
                             Найди себе идеальный <br /> ноутбук для своих задач
                         </p>
@@ -42,11 +45,11 @@ export default function Main() {
 
                 </div>
                 <div className='flex flex-col gap-3 xl:gap-5 basis-1/5'>
-                    <div className='overflow-clip aspect-square mt-3 shadow-xl rounded-3xl bg-black'>
+                    <div className='overflow-clip aspect-square mt-3 shadow-xl rounded-3xl bg-primary-gray'>
                         <img src={Hero1} alt="" className='size-2/3 mx-auto my-3 object-center object-contain' />
                         <p className="text-white font-medium font-headings uppercase text-center">ОТ 59 999 Р</p>
                     </div>
-                    <div className='overflow-clip mb-10 aspect-square shadow-xl rounded-3xl bg-black'>
+                    <div className='overflow-clip mb-10 aspect-square shadow-xl rounded-3xl bg-primary-gray'>
                         <img src={Hero2} alt="" className='size-2/3 mx-auto my-3 object-center object-contain' />
                         <p className="text-white font-medium font-headings uppercase text-center">ОТ 159 999 Р</p>
                     </div>

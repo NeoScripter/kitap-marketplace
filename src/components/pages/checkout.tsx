@@ -21,7 +21,7 @@ export default function Checkout() {
 
             <div className="flex flex-col lg:flex-row lg:items-start gap-4">
                 <div className="space-y-4 lg:flex-1 max-w-165 xl:max-w-220">
-                    <div className="bg-black rounded-xl p-3 overflow-x-auto scrollbar-hidden">
+                    <div className="bg-primary-gray rounded-xl p-3 overflow-x-auto scrollbar-hidden">
                         <div className="flex items-center w-max justify-between gap-3 md:gap-4">
                             {deliveryItems.map((item, idx) => (
                                 <DeliveryItem key={`delivery-item-${idx + 1}`} title={item.title} headline={item.headline} price={item.price} isActive={activeDeliveryItem === idx} onClick={() => setActiveDeliveryItem(idx)} />
@@ -41,7 +41,7 @@ export default function Checkout() {
                         </div>
 
                     </div>
-                    <div className="bg-black rounded-xl p-3 overflow-x-auto scrollbar-hidden">
+                    <div className="bg-primary-gray rounded-xl p-3 overflow-x-auto scrollbar-hidden">
                         <div className="flex items-center w-max justify-between gap-3 md:gap-4">
                             {dayItems.map((item, idx) => (
                                 <DayItem key={`day-item-${idx + 1}`} day={item.day} time={item.time} price={item.price} isActive={activeDayItem === idx} onClick={() => setActiveDayItem(idx)} />
